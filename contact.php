@@ -87,7 +87,7 @@
         <div class="container">
           <h3 style="color: #97445e">Contact Us</h3>
           <div class="contact-container">
-            <form action="/" id="main-form">
+            <form action="mail.php" method="post" id="main-form">
               <label for="name"><span class="required">* </span> Name:</label>
               <input
                 type="text"
@@ -97,7 +97,7 @@
                 required
               />
 
-              <label for="name"><span class="required">* </span>Email:</label>
+              <label for="email"><span class="required">* </span>Email:</label>
               <input
                 type="email"
                 name="email"
@@ -106,7 +106,7 @@
                 required
               />
 
-              <label for="name">Phone:</label>
+              <label for="phone">Phone:</label>
               <input type="text" name="phone" id="phone" placeholder="Phone" />
 
               <label for="message"
