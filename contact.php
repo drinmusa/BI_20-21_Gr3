@@ -87,7 +87,7 @@
         <div class="container">
           <h3 style="color: #97445e">Contact Us</h3>
           <div class="contact-container">
-            <form action="mail.php" method="post" id="main-form">
+            <form action="./mail.php" method="post" id="main-form">
               <label for="name"><span class="required">* </span> Name:</label>
               <input
                 type="text"
