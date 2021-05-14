@@ -393,7 +393,7 @@
           </div>
         </div>
         <div id="contactForm">
-          <form action="/" id="firstForm">
+          <form action="./mail.php" id="firstForm">
             <h3 class="contact-form-title">Contact Us</h3>
             <input type="text" name="name" id="name" placeholder="Name" />
             <input type="email" name="email" id="email" placeholder="Email" />
