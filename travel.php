@@ -84,8 +84,8 @@
           <a href="#" class="social-icons-btn"><i class="fas fa-rss-square"></i></a>
         </div>
         <div class="social-links">
-          <a href="#">Sign Up |</a>
-          <a href="#">Login |</a>
+          <a href="user.php">Sign Up |</a>
+          <a href="user.php">Login |</a>
           <a href="#">RSS Feeds |</a>
           <a href="#">Archived News</a>
         </div>
