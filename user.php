@@ -9,7 +9,7 @@
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/user.css" />
     <title>Imaginative | CONTACT</title>
   </head>
 
@@ -87,7 +87,7 @@
         <div class="container">
           <h3 style="color: #97445e">Register</h3>
           <div class="contact-container">
-            <form action="signup.php" method="POST" id="main-form">
+            <form action="register.php" method="POST" id="register-form">
               <label for="name"><span class="required">* </span> Name:</label>
               <input
                 type="text"
@@ -113,15 +113,21 @@
           <input type="password" name="password" id="password" placeholder="Password">
 					<label for="confirmpassword"><span class="required">* </span>Confirm Password:</label>
           <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
+					<input type="submit" name="register" value="Register">
             </form>
-
-           <form action="login.php" method="POST">
+         <div class="contact-container">
+				 
+				   <form action="login.php" method="POST" id="login-form">
 					 <label for="username"><span class="required">*</span> Username:</label>
 							<input type="text" name="username" id="username" placholder="Username">
 							<label for="password"><span class="required">* </span>Password:</label>
           <input type="password" name="password" id="password" placeholder="Password">
+					<input type="submit" name="login" value="Log In">
 					 </form>
-          </div>
+				 </div>
+          
+					</div>
+			
         </div>
       </section>
     </main>
@@ -135,6 +141,6 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <script src="./js/contact.js"></script>
+    <!-- <script src="./js/contact.js"></script> -->
   </body>
 </html>

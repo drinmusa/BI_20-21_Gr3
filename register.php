@@ -10,7 +10,7 @@
             die("Connection error: " . $connection->connect_error);
         }
            
-        $sqlQuery = "CREATE TABLE IF NOT EXISTS Users (
+        $sqlQuery = "CREATE TABLE IF NOT EXISTS users (
             id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
             name VARCHAR(20) NOT NULL,
 						username VARCHAR(20) NOT NULL,

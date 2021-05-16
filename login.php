@@ -29,12 +29,12 @@
 
 	 
 if (isset($_POST['login'])){
-            $user = $_POST['usernameL'];
-            $pass = $_POST["passwordL"];
+            $user = $_POST['username'];
+            $pass = $_POST["password"];
             $hashPass = hash('sha512',$pass);
 
             $sql = "SELECT * 
-                    FROM Users 
+                    FROM users 
                     WHERE (username='$user' AND password='$hashPass');";
             $res = mysqli_query($conn,$sql);
             
@@ -47,8 +47,8 @@ if (isset($_POST['login'])){
                 setcookie($cookie_name, $cookie_value, time()+(180),"/");
 
                 if(!empty($_POST["remember"])) {
-                    setcookie ("usernameL",$_POST["usernameL"],time()+ 3600);
-                    setcookie ("passwordL",$_POST["passwordL"],time()+ 3600);
+                    setcookie ("username",$_POST["username"],time()+ 3600);
+                    setcookie ("password",$_POST["password"],time()+ 3600);
                     echo '<p>Login data are remembered</p>';
                 } else {
                     setcookie("usernameL","");
