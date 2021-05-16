@@ -1,3 +1,80 @@
+<?php
+   session_start();
+	 $dbhost = 'localhost';
+	 $dbuser = 'root';
+	 $dbpass = '';
+	 $dbname = 'imaginative'; 
+
+	 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+	 if ($conn->connect_error) {
+			 die("Connection error: " . $connection->connect_error);
+	 }
+			
+	 $sqlQuery = "CREATE TABLE IF NOT EXISTS Users (
+			 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			 username VARCHAR(20) NOT NULL,
+			 email VARCHAR(20) NOT NULL,
+			 password VARCHAR(10000) NOT NULL)";
+
+	 if ($conn->query($sqlQuery) === TRUE) {
+			 echo '<script type="text/javascript">'; 
+			 echo 'console.log("Table created successfully!");'; 
+			 echo '</script>';
+	 } else {
+			 $error = 'Error creating SQL table: ' . $conn->error;
+			 echo '<script type="text/javascript">'; 
+			 echo 'console.log("'.$error.'");'; 
+			 echo '</script>';
+	 }   
+
+	 
+if (isset($_POST['login'])){
+            $user = $_POST['username'];
+            $pass = $_POST["password"];
+            $hashPass = hash('sha512',$pass);
+
+            $sql = "SELECT * 
+                    FROM users 
+                    WHERE (username='$user' AND password='$hashPass');";
+            $res = mysqli_query($conn,$sql);
+            
+            if(mysqli_num_rows($res)>0){
+                
+
+                $cookie_value =  $user;
+                $cookie_name = "loggedin";
+                /** Cookie creation */
+                setcookie($cookie_name, $cookie_value, time()+(180),"/");
+
+                if(!empty($_POST["remember"])) {
+                    setcookie ("username",$_POST["username"],time()+ 3600);
+                    setcookie ("password",$_POST["password"],time()+ 3600);
+                    echo '<p>Login data are remembered</p>';
+                } else {
+                    setcookie("usernamelogin","");
+                    setcookie("passwordlogin","");
+                    echo '<p>Login data are not remembered</p>';
+                } 
+
+                if(isset($_COOKIE[$cookie_name])){
+                    $cookie_value = $_COOKIE[$cookie_name];
+                    echo '<form method="post"><p>You are logged in as '.$cookie_value.'. Do you want to log out? &emsp;&emsp;&emsp;';
+                    echo '<input name="logout" type="submit" id="submit" value = "Logout" style="width:100px;"></p></form>';
+
+                    /** Cookie destruction */
+                    if(isset($_POST["logout"])){ 
+                        setcookie("loggedin","val",time()-(120),"/");
+                    }
+                }
+            }
+            else{
+                echo "<p>Username or password is incorrect</p>";
+            }
+        }
+
+
+
+				?>
 <!DOCTYPE html>
 <html lang="en" manifest="demo.appcache">
   <head>
@@ -97,7 +174,7 @@
                 required
               />
 							<label for="username"><span class="required">*</span> Username:</label>
-							<input type="text" name="username" id="username" placholder="Username">
+							<input type="text" name="username" id="username" placeholder="Username">
               <label for="email"><span class="required">* </span>Email:</label>
               <input
                 type="email"
@@ -117,11 +194,11 @@
             </form>
          <div class="contact-container">
 				 
-				   <form action="login.php" method="POST" id="login-form">
+				   <form  method="POST" id="login-form">
 					 <label for="username"><span class="required">*</span> Username:</label>
-							<input type="text" name="username" id="username" placholder="Username">
+							<input type="text" value="<?php if(isset($_COOKIE["usernameL"])) { echo $_COOKIE["usernamelogin"]; } ?>" name="username" id="username" placholder="Username">
 							<label for="password"><span class="required">* </span>Password:</label>
-          <input type="password" name="password" id="password" placeholder="Password">
+          <input type="password" name="password" id="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
 					<input type="submit" name="login" value="Log In">
 					 </form>
 				 </div>

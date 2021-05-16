@@ -1,4 +1,5 @@
 <?php
+		header('Location:user.php');
     session_start();
         $dbhost = 'localhost';
         $dbuser = 'root';
