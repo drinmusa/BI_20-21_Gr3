@@ -286,11 +286,11 @@
 
       <section class="search-travel" >
         <div class="search-travel-container">
-          <form method="POST " action="book.php"  name="booktravel"> 
+          <form method="POST" action="book.php"  name="booktravel"> 
             <div class="search-white-box">
               <div class="whereTo-box">
                 <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-map-marker-alt"></i></span>
-                <input type="text" value=""  name="fullname" placeholder="Full Name" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding: 10px;"/>
+                <input type="text" value="" name="fullname" placeholder="Full Name" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding: 10px;"/>
               </div>
 							<div class="whereTo-box">
                 <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-map-marker-alt"></i></span>
@@ -301,18 +301,18 @@
 
                     <select class="month" name="month" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding:10px 15px; color: gray;">
                       <option value="">Month</option>
-                      <option value="1">January</option>
-                      <option value="2">February</option>
-                      <option value="3">March</option>
-                      <option value="4">April</option>
-                      <option value="5">May</option>
-                      <option value="6">June</option>
-                      <option value="7">July</option>
-                      <option value="8">August</option>
-                      <option value="9">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="December">December</option>
                     </select>
                   </div>
               <div class="travel-type-box">
