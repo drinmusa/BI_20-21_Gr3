@@ -1,7 +1,7 @@
 <?php
-$msg="";
-if(isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['message'])){
-	$name=$_POST['name'];
+
+if (!strlen(trim($_POST['name'])) && !strlen(trim($_POST['email'])) && !strlen(trim($_POST['phone'])) && !strlen(trim($_POST['message'])) ){
+	$name=$_POST['name']; 
 
 	$email=$_POST['email'];
 	$phone=$_POST['phone'];
@@ -35,11 +35,15 @@ if(isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phone']) &&
 				echo '<script> window.location.href ="contact.php" </script>';
 		}
                     else {
-											echo '<script> alert("There was an error,please try again")</script>';s
+											echo '<script> alert("There was an error,please try again")</script>';
 											echo'<script> window.location.href = "contact.php"</script>';
 										}
 
 	
+	}
+	else{
+		echo '<script> alert("Fields marked with * icon are required")</script>';
+		echo'<script> window.location.href = "contact.php"</script>';
 	}
 
 ?>
