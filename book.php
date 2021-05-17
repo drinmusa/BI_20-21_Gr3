@@ -34,22 +34,26 @@
 if ($fullname == '') {
 	echo '<script type="text/javascript">'; 
 	echo 'alert("Name is required.");'; 
+	echo 'window.location.href = "travel.php"';
 	echo '</script>';
 	
 } else if ($phone == '') {
 	echo '<script type="text/javascript">'; 
 	echo 'alert("Phone is required.");'; 
+	echo 'window.location.href = "travel.php"';
 	echo '</script>';
 	
 } else if ($month == '') {
 	echo '<script type="text/javascript">'; 
 	echo 'alert("Month is required.");'; 
+	echo 'window.location.href = "travel.php"';
 	echo '</script>';
 
 }
 else if ($destination == '') {
 	echo '<script type="text/javascript">'; 
 	echo 'alert("Destination is required.");'; 
+	echo 'window.location.href = "travel.php"';
 	echo '</script>';
 
 } 
