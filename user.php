@@ -170,11 +170,12 @@ if (isset($_POST['login'])){
           <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
 					<input type="submit" name="register" value="Register">
             </form>
-         <div class="contact-container">
+         <div class="contact-container" style="margin-top:-320px;">
 				 
 				   <form  method="POST" id="login-form">
+					 <h3 style="color: #97445e">Login</h3>
 					 <label for="username"><span class="required">*</span> Username:</label>
-							<input type="text" value="<?php if(isset($_COOKIE["usernameL"])) { echo $_COOKIE["usernamelogin"]; } ?>" name="username" id="username" placholder="Username">
+							<input type="text" value="<?php if(isset($_COOKIE["usernamelogin"])) { echo $_COOKIE["usernamelogin"]; } ?>" name="username" id="username" placeholder="Username">
 							<label for="password"><span class="required">* </span>Password:</label>
           <input type="password" name="password" id="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
 					<input type="submit" name="login" value="Log In">

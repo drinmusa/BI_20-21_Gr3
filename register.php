@@ -1,5 +1,4 @@
 <?php
-		header('Location:user.php');
     session_start();
         $dbhost = 'localhost';
         $dbuser = 'root';
@@ -49,7 +48,7 @@
             echo '</script>';
         
         } else{
-						$naem = $_POST['name'];
+						$name = $_POST['name'];
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -69,10 +68,12 @@
                 echo '<script type="text/javascript">'; 
                 echo 'alert("A user with this username already exists. Please try another.");'; 
                 echo '</script>'; 
+								echo'<script> window.location.href = "user.php"</script>';
             } else if(mysqli_num_rows($resEm) > 0){
                 echo '<script type="text/javascript">'; 
                 echo 'alert("A user with this email already exists. Please try another.");'; 
                 echo '</script>'; 
+								echo'<script> window.location.href = "user.php"</script>';
             } else{
                 $query = "INSERT INTO users (name,username, email, password) VALUES('$name','$username','$email','$hashPass')";
                 
