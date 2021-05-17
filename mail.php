@@ -33,10 +33,24 @@ if (!strlen(trim($_POST['name'])) && !strlen(trim($_POST['email'])) && !strlen(t
     if($mail->send()){
         echo '<script> alert("Your message was sent someone from our team will contact you as soon as possible")</script>';
 				echo '<script> window.location.href ="contact.php" </script>';
+				try{
+					$filename = 'messages.txt';
+					if(!file_exists($filename)){
+						throw new Exception('File not found');
+					}
+					$myfile = fopen($filename, "w") 
+					$txt = "From ".$email."\n"."Message: ".$message."\n"."================="."\n";
+					fwrite($myfile, $txt);
+					fclose($myfile);
+				}
+				catch(Exception $e){
+					echo "Messages failed to save: ".$e;
+				}
 		}
                     else {
 											echo '<script> alert("There was an error,please try again")</script>';
 											echo'<script> window.location.href = "contact.php"</script>';
+?>
 										}
 
 	
