@@ -21,7 +21,7 @@ if(isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phone']) &&
 	$mail->addAddress("biznesi.interneti@gmail.com");
 	$mail->IsHTML(true);
 	$mail->Subject="New Contact Us";
-	$mail->Body=$html;
+	$mail->Body=$message;
 	$mail->SMTPOptions=array('ssl'=>array(
 		'verify_peer'=>false,
 		'verify_peer_name'=>false,

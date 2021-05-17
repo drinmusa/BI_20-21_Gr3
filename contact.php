@@ -124,7 +124,7 @@
                 type="submit"
                 value="Submit"
                 id="sendMessage"
-                onclick="validatePhoneNumber()"
+               
               />
             </form>
             <iframe
