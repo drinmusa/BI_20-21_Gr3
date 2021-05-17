@@ -9,23 +9,6 @@
 	 if ($conn->connect_error) {
 			 die("Connection error: " . $connection->connect_error);
 	 }
-			
-	 $sqlQuery = "CREATE TABLE IF NOT EXISTS Users (
-			 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-			 username VARCHAR(20) NOT NULL,
-			 email VARCHAR(20) NOT NULL,
-			 password VARCHAR(10000) NOT NULL)";
-
-	 if ($conn->query($sqlQuery) === TRUE) {
-			 echo '<script type="text/javascript">'; 
-			 echo 'console.log("Table created successfully!");'; 
-			 echo '</script>';
-	 } else {
-			 $error = 'Error creating SQL table: ' . $conn->error;
-			 echo '<script type="text/javascript">'; 
-			 echo 'console.log("'.$error.'");'; 
-			 echo '</script>';
-	 }   
 
 	 
 if (isset($_POST['login'])){
@@ -46,20 +29,12 @@ if (isset($_POST['login'])){
                 /** Cookie creation */
                 setcookie($cookie_name, $cookie_value, time()+(180),"/");
 
-                if(!empty($_POST["remember"])) {
-                    setcookie ("username",$_POST["username"],time()+ 3600);
-                    setcookie ("password",$_POST["password"],time()+ 3600);
-                    echo '<p>Login data are remembered</p>';
-                } else {
-                    setcookie("usernamelogin","");
-                    setcookie("passwordlogin","");
-                    echo '<p>Login data are not remembered</p>';
-                } 
+               
 
                 if(isset($_COOKIE[$cookie_name])){
                     $cookie_value = $_COOKIE[$cookie_name];
-                    echo '<form method="post"><p>You are logged in as '.$cookie_value.'. Do you want to log out? &emsp;&emsp;&emsp;';
-                    echo '<input name="logout" type="submit" id="submit" value = "Logout" style="width:100px;"></p></form>';
+                    echo '<div class="success"><form method="post"><p>You are logged in as '.$cookie_value.'. Do you want to log out? &emsp;&emsp;&emsp;';
+                    echo '<input name="logout" type="submit" id="submit" value = "Logout" style="width:100px;"></p></div></form>';
 
                     /** Cookie destruction */
                     if(isset($_POST["logout"])){ 
@@ -71,6 +46,7 @@ if (isset($_POST['login'])){
                 echo "<p>Username or password is incorrect</p>";
             }
         }
+
 
 
 
@@ -86,6 +62,8 @@ if (isset($_POST['login'])){
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/user.css" />
     <title>Imaginative | CONTACT</title>
   </head>
