@@ -49,6 +49,7 @@
             echo '</script>';
         
         } else{
+						$naem = $_POST['name'];
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -73,9 +74,9 @@
                 echo 'alert("A user with this email already exists. Please try another.");'; 
                 echo '</script>'; 
             } else{
-                $query = "INSERT INTO Users (username, email, password) VALUES('$username','$email','$hashPass')";
+                $query = "INSERT INTO users (name,username, email, password) VALUES('$name','$username','$email','$hashPass')";
                 
-                $update = " UPDATE Users 
+                $update = " UPDATE users 
                             SET username = LOWER(username)";
                 $retval = mysqli_query( $conn, $update);
 
