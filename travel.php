@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Imaginative | TRAVEL</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/travel.css"/>
 
@@ -285,11 +286,15 @@
 
       <section class="search-travel" >
         <div class="search-travel-container">
-          <form method=" " action=" " autocomplete="off" name="form_search"  onsubmit="return validateForm()"> 
+          <form method="POST " action="book.php"  name="booktravel"> 
             <div class="search-white-box">
               <div class="whereTo-box">
                 <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-map-marker-alt"></i></span>
-                <input type="text" value=""  name="destination" placeholder="Where to?" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding: 10px;"/>
+                <input type="text" value=""  name="fullname" placeholder="Full Name" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding: 10px;"/>
+              </div>
+							<div class="whereTo-box">
+                <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-map-marker-alt"></i></span>
+                <input type="text" value=""  name="phone" placeholder="Phone" style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding: 10px;"/>
               </div>
                   <div class="month-box">
                     <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-calendar"></i></span>
@@ -312,23 +317,28 @@
                   </div>
               <div class="travel-type-box">
                 <span style="background-color: #F1EAE9; padding: 20px 10px;"><i class="fas fa-thumbtack"></i></span>
-                <select class="type" name="type"  style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding:10px 15px; color: gray;">
-                  <option value="">Travel Type</option>
-                  <option value="air-rides">Air Rides</option>
-                  <option value="beaches">Beaches</option>
-                  <option value="city-sightseeing">City Sightseeing</option>
-                  <option value="hiking-adventures">Hiking Adventures</option>
-                  <option value="historical-buildings">Historical Buildings</option>
-                  <option value="meals-included">Meals Included</option>
-                  <option value="musem-tours">Musem Tours</option>
-                  <option value="romantic">Romantic</option>
-                  <option value="spiritual-voyage">Spiritual Voyage</option>
-                  <option value="theater-festival">Theater Festival</option>
-                  <option value="vespa-rides">Vespa Rides</option>
+                <select class="type" name="destination"  style="cursor: pointer; width: 100%; background-color: #F1EAE9; border-style: none; outline: none; position:relative; padding:10px 15px; color: gray;">
+                  <option value="">Destination</option>
+                  <option value="Antalya">Antalya</option>
+                  <option value="Dubai">Dubai</option>
+                  <option value="Maldive">Maldive</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                  <option value="Cappadocia">Cappadocia</option>
+                  <option value="Milano">Milano</option>
+                  <option value="Mykonos">Mykonos>
+                  <option value="sainttropez">Saint Tropez</option>
+                  <option value="spiritual-voyage">Monaco</option>
+                  
                 </select> 
               </div>  
                   <div class="box-submit">
-                     <button type="submit" value="submit" class="boxsubmit" >Find now</button>
+									<input type="submit" value="Book Now" class="btn" style=" font-size: 14px;
+  line-height: 49px;
+  height: 62px; border-width: 0;
+  padding-left: 49px;
+  padding-right: 49px;
+  margin-left: 20px;background:#97455f;cursor: pointer; width: 100%; color:#fff; outline: none; padding:10px 15px;">
+                     
                   </div>
              </div>  
            </form>

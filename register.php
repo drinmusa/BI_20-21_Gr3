@@ -76,7 +76,7 @@
                 $query = "INSERT INTO Users (username, email, password) VALUES('$username','$email','$hashPass')";
                 
                 $update = " UPDATE Users 
-                            SET username = LOWER(userName)";
+                            SET username = LOWER(username)";
                 $retval = mysqli_query( $conn, $update);
 
                 if ($conn->query($query) === TRUE) {

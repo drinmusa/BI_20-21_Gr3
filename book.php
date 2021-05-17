@@ -1,0 +1,62 @@
+<?php
+$dbhost = 'localhost';
+        $dbuser = 'root';
+        $dbpass = '';
+        $dbname = 'imaginative'; 
+
+        $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+        if ($conn->connect_error) {
+            die("Connection error: " . $connection->connect_error);
+        }
+           
+        $sqlQuery = "CREATE TABLE IF NOT EXISTS bookings (
+            id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+            fullname VARCHAR(35) NOT NULL,
+						phone VARCHAR(35) NOT NULL,
+           	month VARCHAR(30) NOT NULL,
+            destination VARCHAR(35) NOT NULL)";
+  if ($conn->query($sqlQuery) === TRUE) {
+		echo '<script type="text/javascript">'; 
+		echo 'console.log("Table created successfully!");'; 
+		echo '</script>';
+} else {
+		$error = 'Error creating SQL table: ' . $conn->error;
+		echo '<script type="text/javascript">'; 
+		echo 'console.log("'.$error.'");'; 
+		echo '</script>';
+}   
+if ($_POST['fullname'] == '') {
+	echo '<script type="text/javascript">'; 
+	echo 'alert("Name is required.");'; 
+	echo '</script>';
+	
+} else if ($_POST['phone'] == '') {
+	echo '<script type="text/javascript">'; 
+	echo 'alert("Phone is required.");'; 
+	echo '</script>';
+	
+} else if ($_POST['month'] == '') {
+	echo '<script type="text/javascript">'; 
+	echo 'alert("Month is required.");'; 
+	echo '</script>';
+
+}
+else if ($_POST['Destination'] == '') {
+	echo '<script type="text/javascript">'; 
+	echo 'alert("Destination is required.");'; 
+	echo '</script>';
+
+} 
+else{
+	$fullname = $_POST['fullname'];
+	$phone = $_POST['phone'];
+	$month = $_POST['month'];
+	$destination = $_POST['destination'];
+
+	$query = "INSERT INTO bookings (fullname, phone, month,destination) VALUES('$fullname','$phone','$month','$destination')";
+	
+	if ($conn->query($query) === TRUE) {
+			
+	}
+}
+?>
